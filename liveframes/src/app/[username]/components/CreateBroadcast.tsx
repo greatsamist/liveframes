@@ -104,7 +104,7 @@ const CreateBroadcast = () => {
               {/* <h2>Framecast created successfully</h2> */}
               <p>
                 Share LiveFrame url:{" "}
-                {`http://liveframes.vercel.app/mint/frames?id=${framecast?.playbackId}&addr=${contractAddress}/`}
+                {`https://liveframes.vercel.app/mint/frames?id=${framecast?.playbackId}&addr=${contractAddress}/`}
               </p>
               <Link
                 href={`/broadcast?&key=${"27c5-ji06-t3bu-mdoq"}&name=${
