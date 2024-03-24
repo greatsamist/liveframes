@@ -14,6 +14,7 @@ import { Label } from "@/app/components/ui/label";
 import { createBroadcastAction } from "@/lib/actions/createBrodcastAction";
 import { LiveframesFactoryAddress } from "@/lib/contracts";
 import { FactoryAbi } from "@/lib/contracts/FactoryAbi";
+
 import { useWallets } from "@privy-io/react-auth";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -34,14 +35,8 @@ const CreateBroadcast = () => {
   const [contractAddress, setContractAddress] = useState(
     "0x7459BA66b289a8EFB4bD6aD32Fa12d96C7F4E7ea"
   );
-  const [framecast, setFramecast] = useState<IFramecast>({
-    playbackId: "27c5kyopnlcayyyj",
-    streamKey: "27c5-ji06-t3bu-mdoq",
-    name: "Eric Stream",
-  });
-  const [txhash, setTxhash] = useState(
-    "0x80a548d319e93bdaf1eab7d2528d2a9ed6f1459fbc04627d05c4a807f7f8bb15"
-  );
+  const [framecast, setFramecast] = useState<IFramecast>();
+  const [txhash, setTxhash] = useState("");
   const { wallets } = useWallets();
   const wallet = wallets[0]; // Replace this with your desired wallet
 
@@ -69,9 +64,9 @@ const CreateBroadcast = () => {
     e.preventDefault();
     if (wallet.address) {
       try {
-        // const frameCast = await createBroadcastAction({ name: framecastName });
-        // console.log(frameCast);
-        // setFramecast(frameCast);
+        const frameCast = await createBroadcastAction({ name: framecastName });
+        console.log(frameCast);
+        setFramecast(frameCast);
 
         const provider = await wallet.getEthereumProvider();
 
@@ -104,17 +99,17 @@ const CreateBroadcast = () => {
           </DialogDescription>
         </DialogHeader>
         <div>
-          {framecast ? (
+          {framecast && txhash !== "" ? (
             <div>
               {/* <h2>Framecast created successfully</h2> */}
               <p>
                 Share LiveFrame url:{" "}
-                {`${window.location.origin}/live?id=${
-                  framecast?.playbackId
-                }&addr=${"0xaddress"}`}
+                {`http://liveframes.vercel.app/mint/frames?id=${framecast?.playbackId}&addr=${contractAddress}/`}
               </p>
               <Link
-                href={`/broadcast?&key=${framecast.streamKey}&name=${framecast.name}`}
+                href={`/broadcast?&key=${"27c5-ji06-t3bu-mdoq"}&name=${
+                  framecast.name
+                }`}
               >
                 <Button>Start LiveFrame</Button>
               </Link>

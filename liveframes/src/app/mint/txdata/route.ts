@@ -15,7 +15,8 @@ export async function POST(
   req: NextRequest
 ): Promise<NextResponse<TransactionTargetResponse>> {
   const json = await req.json();
-
+  const playbackId = req.nextUrl.searchParams.get("playbackId");
+  const address = req.nextUrl.searchParams.get("address") as `0x${string}`;
   const frameMessage = await getFrameMessage(json);
 
   if (!frameMessage) {
@@ -28,7 +29,7 @@ export async function POST(
   const calldata = encodeFunctionData({
     abi: liveframesNFTAbi,
     functionName: "mint",
-    args: ["0x9268d03EfF4A9A595ef619764AFCB9976c0375df", 1],
+    args: [],
   });
 
   const publicClient = createPublicClient({
@@ -49,7 +50,7 @@ export async function POST(
     method: "eth_sendTransaction",
     params: {
       abi: liveframesNFTAbi as Abi,
-      to: "0x7459BA66b289a8EFB4bD6aD32Fa12d96C7F4E7ea",
+      to: address,
       data: calldata,
       value: "0",
     },

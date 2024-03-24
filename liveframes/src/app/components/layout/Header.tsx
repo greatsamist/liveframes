@@ -13,7 +13,7 @@ const Header = ({ children }: { children: ReactNode }) => {
     if (user?.farcaster || user?.wallet) {
       router.push(`/${user?.farcaster?.username ?? user?.wallet?.address}`);
     }
-  }, []);
+  }, [user]);
 
   return (
     <div>
