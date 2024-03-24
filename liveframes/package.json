@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coinbase/onchainkit": "^0.11.0",
     "@farcaster/core": "^0.14.8",
     "@livepeer/react": "^4.1.11",
     "@privy-io/react-auth": "^1.59.5",

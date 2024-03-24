@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract LiveFramesNFT is ERC721, Ownable(msg.sender) {
     uint256 public mintFee;
+    uint256 public tokenId;
 
     constructor(
         string memory name,
@@ -21,8 +22,9 @@ contract LiveFramesNFT is ERC721, Ownable(msg.sender) {
         mintFee = _mintFee;
     }
 
-    function mint(address to, uint256 tokenId) external payable {
+    function mint() external payable {
         require(msg.value >= mintFee, "Insufficient fee");
-        _safeMint(to, tokenId);
+        tokenId++;
+        _safeMint(msg.sender, tokenId);
     }
 }
