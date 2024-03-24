@@ -38,7 +38,7 @@ const handleRequest = frames(async (ctx) => {
       aspectRatio: "1:1",
     },
     buttons: [
-      <Button action="tx" target="/mint/txdata" post_url="/mint/frames">
+      <Button action="tx" target="/txdata" post_url="/frames">
         Mint
       </Button>,
     ],

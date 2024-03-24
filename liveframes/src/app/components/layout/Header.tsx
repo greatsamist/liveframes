@@ -12,8 +12,8 @@ const Header = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     if (user?.farcaster || user?.wallet) {
       router.push(`/${user?.farcaster?.username ?? user?.wallet?.address}`);
-    } else router.push(`/`);
-  }, [user, router]);
+    }
+  }, []);
 
   return (
     <div>
