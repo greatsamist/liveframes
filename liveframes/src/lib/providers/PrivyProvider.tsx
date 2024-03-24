@@ -31,7 +31,7 @@ export default function PrivyProvider({
         appearance: {
           theme: "light",
           accentColor: "#676FFF",
-          logo: "https://your-logo-url",
+          logo: "https://liveframes.vercel.app/liveframeslogo.png",
         },
         // Create embedded wallets for users who don't have a wallet
         embeddedWallets: {

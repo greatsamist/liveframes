@@ -53,7 +53,7 @@ const Home = async ({ searchParams }: NextServerPageProps) => {
   return (
     <div className="h-screen w-screen justify-center items-center flex flex-col">
       <h1 className="text-4xl text-green-600 font-bold">
-        Welcome to LiveFrames
+        Welcome to Liveframes
       </h1>
 
       {/* <Button className="mt-10" onClick={authenticated ? logout : login}>
