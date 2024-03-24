@@ -12,8 +12,10 @@
     "@farcaster/core": "^0.14.8",
     "@livepeer/react": "^4.1.11",
     "@privy-io/react-auth": "^1.59.5",
+    "@privy-io/wagmi": "^0.2.2",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-label": "^2.0.2",
+    "@tanstack/react-query": "^5.28.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "frames.js": "^0.9.5",
@@ -26,7 +28,8 @@
     "react-dom": "^18",
     "sonner": "^1.4.41",
     "tailwind-merge": "^2.2.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "wagmi": "^2.5.12"
   },
   "devDependencies": {
     "@types/node": "^20",
