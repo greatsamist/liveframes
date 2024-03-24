@@ -41,7 +41,7 @@ const handleRequest = frames(async (ctx) => {
       <Button
         action="tx"
         target={`/txdata?playbackId=27c5kyopnlcayyyj&address=0x7459BA66b289a8EFB4bD6aD32Fa12d96C7F4E7ea`}
-        post_url="/frames"
+        post_url="https://liveframes.vercel.app/live?id=27c5kyopnlcayyyj&address=0x7459BA66b289a8EFB4bD6aD32Fa12d96C7F4E7ea"
       >
         Mint
       </Button>,
